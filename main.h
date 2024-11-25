@@ -13,5 +13,6 @@ typedef struct op
 	int (*f)(int a, int b);
 } op_t;
 int _printf(const char *format, ...);
+int _putchar(char c);
 
 #endif
