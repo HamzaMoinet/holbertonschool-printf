@@ -1,15 +1,21 @@
 #include <stdio.h>
 #include <stdarg.h>
-#include <stdlib.h>
 #include "main.h"
 /**
- * _print - function that produces output according to a format
- * @c:
- * @s:
- * @%:
+ *
+ *
  */
 
-int _printf(const char *format, ...)
+int _printf(const char *format, ...);
 {
-	
+	va_list args;
+	int count = 0;
+	int i;
+
+	if (format == NULL)
+		return (-1);
+
+	va_start(args, format);
+
+	for (i = 0; format[i] != '\0'; i++)
 }
