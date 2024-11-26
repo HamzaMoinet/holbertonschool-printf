@@ -11,11 +11,22 @@ void printf_char(va_list ap)
 	char c = va_arg(ap, int);
 		_putchar(c);
 }
-
+/**
+ * print_string
+ *
+ * @param ap
+ */
+void printf_string(va_list ap)
+{
+	int i;
+	char *s = va_arg(ap, char *);
+	for (i = 0; s[i] != '\0'; i++)
+		_putchar(s[i]);
+}
 /**
  * printf_percent: print modulos
  *
- * 
+ *
  */
 void printf_percent(va_list ap)
 {
