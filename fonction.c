@@ -18,15 +18,16 @@ int printf_char(va_list ap)
  *
  * @param ap
  */
-int printf_string(va_list ap)
+int _putstring(char *str)
 {
-	int i;
-	char *str = va_arg(ap, char *);
+	int count = 0;
+
 	for (i = 0; str[i] != '\0'; i++)
 	{
 		_putchar(str[i]);
+		count++;
 	}
-	return (1);
+	return (count);
 }
 /**
  * printf_percent: print modulos
@@ -39,5 +40,6 @@ int printf_percent(va_list ap)
 	{
 	if (i == 37)
 		_putchar(37);
-	}return (1);
+	}
+	return (1);
 }
