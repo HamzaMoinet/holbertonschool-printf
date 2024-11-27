@@ -22,7 +22,9 @@ void printf_string(va_list ap)
 	int i;
 	char *str = va_arg(ap, char *);
 	for (i = 0; str[i] != '\0'; i++)
+	{
 		_putchar(str[i]);
+	}
 }
 /**
  * printf_percent: print modulos
