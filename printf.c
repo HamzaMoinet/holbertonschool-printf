@@ -6,7 +6,7 @@
 *
 */
 
-int _printf(const char *format, ...);
+int _printf(const char *format, ...)
 {
 	va list args;
 	int printedCount = 0;
@@ -53,10 +53,10 @@ int _printf(const char *format, ...);
 		{
 			int count = _putchar(format[i])
 
-					printedCount = count + printedCount
+					printedCount = count + printedCount;
 		}
 	}
 	va_end(args);
-	
+
 	return (printedCount);
 }
