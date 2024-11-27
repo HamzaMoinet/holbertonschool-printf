@@ -2,33 +2,37 @@
 #include <stddef.h>
 
 /**
- * Table of specifiers
- */
-void (*get_function(char *spec))(int, int)
+* get_function - Finds the function pointer for a given specifier
+* @spec: Format specifier character
+* Return: Function pointer corresponding to the specifier, or NULL
+*/
+void (*get_function(char spec))(int, int)
 {
-	specifier_table specifiers[] = {
-	{'c', printf_char},
-	{'s', printf_string},
-	{'%', printf_percent},
-	};
-}
-
-/**
- * get_function - found the function pointer for a given specifier
- * @spec: format specifier character
- * Return: function pointer corresponding to specifier, or NULL
- */
-func_t get_function(char spec)
-{
-	int i;
-	/* Loop through the specifier table to find a match */
-	for (i = 0; specifiers[i].specifier; i++)
+	/* Define the table of specifiers */
+	typedef struct op
 	{
-		if (specifiers[i].specifier == spec) /*check if the speficier match */
+		char op;
+
+		void (*f)(int, int);
+	} op_t;
+
+	op_t specifiers[] = {
+		{'c', printf_char},
+		{'s', printf_string},
+		{'%', printf_percent},
+		{0, NULL} /* End marker */
+	};
+
+	int i;
+
+	/* Loop through the table to find a match */
+	for (i = 0; specifiers[i].op; i++)
+	{
+		if (specifiers[i].op == spec)
 		{
-			return (specifiers[i].function);
-			/* Return the corresponding function pointer */
+			return (specifiers[i].f);
 		}
 	}
-	return (NULL); /* Return NULL if no match was found */
+
+	return (NULL); /* Return NULL if no match is found */
 }
