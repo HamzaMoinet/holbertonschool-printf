@@ -1,14 +1,15 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include "main.h"
+
 /**
-*
-*
-*/
+ *
+ *
+ */
 
 int _printf(const char *format, ...)
 {
-	va list args;
+	va_list args;
 	int printedCount = 0;
 
 	int i;
@@ -22,38 +23,34 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-				i++;
+			i++;
 			if (format[i] == 'c')
 			{
 				char c = va_arg(args, int);
 
-					int count = _putchar(c)
+				int count = _putchar(c);
 
-					printedCount = count + printedCount
-
+					printedCount = count + printedCount;
 			}
 			else if (format[i] == 's')
 			{
-				char *string = va_arg(args, char *);
 
-					int count = _putstring(string)
+				int count = _putstring(args);
 
-					printedCount = count + printedCount
-
+					printedCount = count + printedCount;
 			}
 			else
 			{
-				int count = _putchar(format[i])
+				int count = _putchar(format[i]);
 
-					printedCount = count + printedCount
+					printedCount = count + printedCount;
 			}
-
 		}
 		else
 		{
-			int count = _putchar(format[i])
+			int count = _putchar(format[i]);
 
-					printedCount = count + printedCount;
+				printedCount = count + printedCount;
 		}
 	}
 	va_end(args);
