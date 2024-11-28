@@ -1,26 +1,23 @@
-
-#ifndef _create_printf_
-#define _create_printf_
 #include <stdarg.h>
-#include <stddef.h>
-#include <stdlib.h>
-#include <stdio.h>
-
+#ifndef _PRINTF
+#define _PRINTF
 /**
- * struct _printf - name of the structure for printf function
- * @f: pointer of function
- * @spec: specifier string
+ * struct op - Struct op
+ *
+ * @op: The operator
+ * @f: The function associated
  */
 
-typedef struct type_spec
+typedef struct op
 {
-	char *spec;
-	int (*func)(va_list ap);
-} type_spec;
-
-int _printf(const char *format, ...);
-int _putchar(char c);
-int printf_percent(va_list ap);
-int printf_string(va_list ap);
+	char *op;
+	int (*f)(va_list ap);
+} op_t;
+int (*get_op_func(char *s))(va_list ap);
 int printf_char(va_list ap);
+int _putstring(va_list ap);
+int printf_percent(va_list ap);
+int _putchar(char c);
+int _printf(const char *format, ...);
+
 #endif
