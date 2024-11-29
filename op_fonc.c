@@ -22,16 +22,14 @@ int printf_char(va_list ap)
  */
 int _putstring(va_list ap)
 {
-	int count = 0;
-	int i;
-	char *str = va_arg(ap, char *);
-
-	for (i = 0; str[i] != '\0'; i++)
-	{
-		_putchar(str[i]);
-		count++;
-	}
-	return (count);
+    char *str = va_arg(ap, char*);
+    int count = 0;
+    while (*str)
+    {
+        count += _putchar(*str);
+        str++;
+    }
+    return count;
 }
 /**
  * printf_percent - print modulos
@@ -55,21 +53,22 @@ int printf_percent(va_list ap)
 int print_dec(va_list ap)
 {
 	int n = va_arg(ap, int), count = 0, i = 0;
-	int buffer[12];
+	int buffer[11];
 	unsigned int num;
 
 	if (n < 0)
 	{
 		_putchar('-');
-		num = -n;
 		count++;
+		num = -n;
 	}
 	else
 		num = n;
 
 	if (num == 0)
 	{
-		count += _putchar('0');
+		_putchar('0');
+		count++;
 		return (count);
 	}
 	while (num > 0)
@@ -78,9 +77,9 @@ int print_dec(va_list ap)
 		num /= 10;
 	}
 
+	count += i;
 	for (i = i - 1; i >= 0; i--)
-	{
-		count += _putchar(buffer[i]);
-	}
+		_putchar(buffer[i]);
+
 	return (count);
 }
