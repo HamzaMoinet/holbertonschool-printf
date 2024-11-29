@@ -45,6 +45,12 @@ int _printf(const char *format, ...)
 
 					printedCount = count + printedCount;
 			}
+			else if (format[i] == 'i')
+			{
+				int count = print_int(format[i]);
+
+				printedCount = count + printedCount;
+			}
 		}
 		else
 		{

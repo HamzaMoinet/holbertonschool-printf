@@ -13,12 +13,14 @@ int (*get_op_func(char *s))(va_list ap)
 			{"c", printf_char},
 			{"s", _putstring},
 			{"%", printf_percent},
+			{"d", print_dec},
+			{"i", print_dec},
 			{NULL, NULL}
 	};
 
 	int i = 0;
 
-	while (i < 3)
+	while (i < 5)
 	{
 		if (strcmp(s, ops[i].op) == 0)
 		{
