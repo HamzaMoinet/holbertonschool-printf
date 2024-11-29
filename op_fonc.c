@@ -44,3 +44,27 @@ int printf_percent(va_list ap)
 	}
 	return (1);
 }
+/**
+ *
+ *
+ */
+int print_dec(va_list ap)
+{
+	unsigned int num;
+	char
+	va_list ap;
+
+}
+int print_int(va_list list)
+{
+	unsigned int num;
+
+	num = va_arg(list, unsigned int);
+
+	if (num == 0)
+		return (print_int(num));
+
+	if (num < 1)
+		return (-1);
+	return (print_int(num));
+}

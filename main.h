@@ -19,7 +19,6 @@ int _putstring(va_list ap);
 int printf_percent(va_list ap);
 int _putchar(char c);
 int _printf(const char *format, ...);
-int print_int(va_list ap);
 int print_dec(va_list ap);
 
 #endif

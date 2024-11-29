@@ -14,7 +14,7 @@ int (*get_op_func(char *s))(va_list ap)
 			{"s", _putstring},
 			{"%", printf_percent},
 			{"d", print_dec},
-			{"i", print_int},
+			{"i", print_dec},
 			{NULL, NULL}
 	};
 
