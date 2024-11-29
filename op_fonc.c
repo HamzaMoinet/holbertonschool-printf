@@ -1,6 +1,7 @@
 #include "main.h"
 #include <stdio.h>
 #include <stdarg.h>
+#include <stdlib.h>
 /**
  * print_char - prints character
  * @args: character argument
@@ -50,21 +51,34 @@ int printf_percent(va_list ap)
  */
 int print_dec(va_list ap)
 {
-	unsigned int num;
-	char
-	va_list ap;
-
-}
-int print_int(va_list list)
-{
+	int n = va_arg(ap, int), count = 0, i = 0;
+	int buffer[12];
 	unsigned int num;
 
-	num = va_arg(list, unsigned int);
+	if (n < 0)
+	{
+		_putchar('-');
+		num = -n;
+		count++;
+	}
+	else
+		num = n;
 
 	if (num == 0)
-		return (print_int(num));
+	{
+		count += _putchar('0');
+		return (count);
+	}
+	while (num > 0)
+	{
+		buffer[i++] = (num % 10) + '0';
+		num /= 10;
+	}
 
-	if (num < 1)
-		return (-1);
-	return (print_int(num));
+	for (i = i - 1; i >= 0; i--)
+	{
+		count += _putchar(buffer[i]);
+
+	}
+	return (count);
 }
