@@ -9,19 +9,21 @@
 
 int _printf(const char *format, ...)
 {
-	va_list args;
+	va_list ap;
 	int printedCount = 0;
 
-	int i;
-
-	if (format == NULL)
-		return (0);
-
-	va_start(args, format);
-
-	for (i = 0; format[i] != '\0'; i++)
+	char i = 0;
+	
+	va_start(ap, format);
+	if (*format == NULL)
 	{
-		if (format[i] == '%')
+		va_end(ap);
+		return (-1);
+	}
+
+	for (format && format[i] != '\0'; i++)
+	{
+		if (*format[i] == '%')
 		{
 			i++;
 			if (format[i] == 'c')
@@ -45,7 +47,7 @@ int _printf(const char *format, ...)
 
 					printedCount = count + printedCount;
 			}
-			if (format[i] == 'd' ||format[i] == 'i')
+			if (format[i] == 'd' || format[i] == 'i')
 			{
 				int count = print_dec(format[i]);
 
@@ -54,12 +56,12 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			int count = _putchar(format[i]);
+			int count = _putchar(format[ia]);
 
 				printedCount = count + printedCount;
 		}
 	}
-	va_end(args);
+	va_end(ap);
 
 	return (printedCount);
 }
