@@ -3,9 +3,8 @@
 #include "main.h"
 
 /**
- *_printf - fonction printf
- *@format: format
- *Return: Return
+ *
+ *
  */
 
 int _printf(const char *format, ...)
@@ -48,10 +47,9 @@ int _printf(const char *format, ...)
 			}
 			if (format[i] == 'd' || format[i] == 'i')
 			{
-				int count = print_dec(format[i]);
-
-				printedCount = count + printedCount;
-			}
+				int count = print_dec(args);
+				printedCount += count;
+				}
 		}
 		else
 		{
