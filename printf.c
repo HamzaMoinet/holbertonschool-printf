@@ -45,9 +45,9 @@ int _printf(const char *format, ...)
 
 					printedCount = count + printedCount;
 			}
-			else if (format[i] == 'i')
+			if (format[i] == 'd' ||format[i] == 'i')
 			{
-				int count = print_int(format[i]);
+				int count = print_dec(format[i]);
 
 				printedCount = count + printedCount;
 			}
