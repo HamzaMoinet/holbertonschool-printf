@@ -1,41 +1,44 @@
-_printf
 
-Description
+# _Printf
+
+DESCRIPTION
 
 This project involves reimplementing the standard Printf function.
 It does exactly the same like print characters, strings and numbers.
- 
- ![image](https://github.com/user-attachments/assets/71c7910b-da15-43c8-b872-460a57e0836b)
+
+![image](https://github.com/user-attachments/assets/71c7910b-da15-43c8-b872-460a57e0836b)
 
 
-Example
+## Example
 
-#include  "main.h"
+Install my-project with npm
 
-int  main(void)
-{
-    _printf("Hello, %s!\n", "school!");
-    _printf("%d\n", 13);
-    return (0);
+```bash
+  #include "main.h"
+
+int main(void) { _printf("Hello, %s!\n", "school!"); _printf("%d\n", 13); return (0);
 
 }
 
 output
 
-Hello, school!
-13
+Hello, school! 13
+```
 
-Compilation
+# Compilation
 
 for compile and execute the code, enter this line:
 
+```bash
 gcc -Wall -Wextra -Werror -pedantic -std=gnu89 -Wno-format *.c
+```
 
-How to try it
+# How to try It
 
 This is the main file to test the print function
 
-#include <limits.h>
+```bash
+  #include <limits.h>
 #include <stdio.h>
 #include "main.h"
 
@@ -79,9 +82,8 @@ int main(void)
     printf("Unknown:[%r]\n");
     return (0);
 }
+```
+## Authors
 
-Authors
-
-Bouvier Guillaume
-Moinet Hamza
-
+- [@BvrGuillaume](https://www.github.com/BvrGuillaume)
+- [@HamzaMoinet](https://www.github.com/HamzaMoinet)
