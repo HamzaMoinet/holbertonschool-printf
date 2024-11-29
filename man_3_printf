@@ -1,0 +1,31 @@
+.TH _printf "29/11/2024" "user command of _printf"
+.SH NAME
+_printf - print output according to a format
+.B #include "main.h
+.TP
+.B int _printf(const char *format, ...);
+.SH DESCRIPTION
+.B _printf
+The function _printf is a custom implementation of the standard printf function that produces output according to a format string.
+_printf writes formatted output to stdout. It returns the total number of characters written
+.SH PARAMETERS
+.B format
+	A string containing plain text and format specifiers. Format specifiers are introduced with the '%' character.
+.SH SPECIFIERS
+.B '%c' Prints a character
+.B '%s' Prints a string
+.B '%d' and '%i' Prints a decimal integers
+.SH RETURN VALUE
+The _printf function returns the total number of characters written on success. If an error occurs, the return value is undefined.
+.SH EXAMPLE
+       Basic usage of _printf:
+
+       int len = _printf("Hello, %s!\n", "World");
+       printf("Length: %d\n", len);
+
+       Example output:
+       Hello, World!
+       Length: 13
+.SH AUTHORS
+Bouvier Guillaume
+Moinet Hamza
