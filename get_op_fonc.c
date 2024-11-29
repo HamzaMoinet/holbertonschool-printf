@@ -4,16 +4,16 @@
 #include <string.h>
 
 /**
- * get_op_func - select the correct function
- * @s: string of get p function
- * Return: Integer and function
+ *get_op_func - fonction
+ *@s: represente les specifier de chaque
+ *@ap: caratère argument
  */
 int (*get_op_func(char *s))(va_list ap)
 {
 	op_t ops[] = {
 			{"c", printf_char},
 			{"s", _putstring},
-			{"%", printf_percent},
+			{"%%", printf_percent},
 			{"d", print_dec},
 			{"i", print_dec},
 			{NULL, NULL}
