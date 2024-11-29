@@ -1,17 +1,16 @@
- #include <stdio.h>
+#include <stdio.h>
 #include <stdarg.h>
 #include "main.h"
 
 /**
- *
- *
+ * _printf - Custom implementation of printf
+ * @format: Format string containing the text and format specifiers
+ * Return: Number of characters printed
  */
-
 int _printf(const char *format, ...)
 {
 	va_list args;
 	int printedCount = 0;
-
 	int i;
 
 	if (format == NULL)
@@ -24,41 +23,38 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
+			if (format[i] == '\0')
+				break;
+
 			if (format[i] == 'c')
 			{
 				char c = va_arg(args, int);
-
-				int count = _putchar(c);
-
-					printedCount = count + printedCount;
+				printedCount += _putchar(c);
 			}
 			else if (format[i] == 's')
 			{
-
-				int count = _putstring(args);
-
-					printedCount = count + printedCount;
+				printedCount += _putstring(args);
+			}
+			else if (format[i] == 'd' || format[i] == 'i')
+			{
+				printedCount += print_dec(args);
+			}
+			else if (format[i] == '%')
+			{
+				printedCount += _putchar('%');
 			}
 			else
 			{
-				int count = _putchar(format[i]);
-
-					printedCount = count + printedCount;
+				printedCount += _putchar('%');
+				printedCount += _putchar(format[i]);
 			}
-			if (format[i] == 'd' || format[i] == 'i')
-			{
-				int count = print_dec(args);
-				printedCount += count;
-				}
 		}
 		else
 		{
-			int count = _putchar(format[i]);
-
-				printedCount = count + printedCount;
+			printedCount += _putchar(format[i]);
 		}
 	}
-	va_end(args);
 
+	va_end(args);
 	return (printedCount);
 }
