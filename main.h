@@ -1,6 +1,8 @@
-#include <stdarg.h>
 #ifndef _PRINTF
 #define _PRINTF
+#include <stdarg.h>
+#include <stddef.h>
+#include <stdlib.h>
 /**
  * struct op - Struct op
  *
