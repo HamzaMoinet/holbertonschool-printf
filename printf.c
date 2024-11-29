@@ -1,4 +1,4 @@
-#include <stdio.h>
+ #include <stdio.h>
 #include <stdarg.h>
 #include "main.h"
 
@@ -9,21 +9,19 @@
 
 int _printf(const char *format, ...)
 {
-	va_list ap;
+	va_list args;
 	int printedCount = 0;
 
-	char i = 0;
-	
-	va_start(ap, format);
-	if (*format == NULL)
-	{
-		va_end(ap);
-		return (-1);
-	}
+	int i;
 
-	for (format && format[i] != '\0'; i++)
+	if (format == NULL)
+		return (0);
+
+	va_start(args, format);
+
+	for (i = 0; format[i] != '\0'; i++)
 	{
-		if (*format[i] == '%')
+		if (format[i] == '%')
 		{
 			i++;
 			if (format[i] == 'c')
@@ -47,7 +45,7 @@ int _printf(const char *format, ...)
 
 					printedCount = count + printedCount;
 			}
-			if (format[i] == 'd' || format[i] == 'i')
+			if (format[i] == 'd' ||format[i] == 'i')
 			{
 				int count = print_dec(format[i]);
 
@@ -56,12 +54,13 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			int count = _putchar(format[ia]);
+			int count = _putchar(format[i]);
 
 				printedCount = count + printedCount;
 		}
 	}
-	va_end(ap);
+	va_end(args);
 
 	return (printedCount);
 }
+
