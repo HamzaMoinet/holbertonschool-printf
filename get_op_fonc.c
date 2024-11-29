@@ -4,8 +4,9 @@
 #include <string.h>
 
 /**
- * @brief
- *
+ * get_op_func - select the correct function
+ * @s: string of get p function
+ * Return: Integer and function
  */
 int (*get_op_func(char *s))(va_list ap)
 {

@@ -3,20 +3,22 @@
 #include <stdarg.h>
 #include <stdlib.h>
 /**
- * print_char - prints character
- * @args: character argument
- *
+ *printf_char - prints character
+ *@ap: character argument
+ *Return: nombre de caractère a imprimé
  */
 int printf_char(va_list ap)
 {
 	char c = va_arg(ap, int);
-		_putchar(c);
-		return (1);
+	{
+	_putchar(c);
+	return (1);
+	}
 }
 /**
- * print_string
- *
- * @param ap
+ *_putstring - print a string
+ *@ap: charactère argument
+ *Return: nombre de caractère a imprimé
  */
 int _putstring(va_list ap)
 {
@@ -32,22 +34,23 @@ int _putstring(va_list ap)
 	return (count);
 }
 /**
- * printf_percent: print modulos
- *
- *
+ * printf_percent - print modulos
+ *@ap: charatere argument
+ *Return: nombre de caractère a imprimé
  */
 int printf_percent(va_list ap)
 {
 	int i = va_arg(ap, int);
 	{
-	if (i == 37)
-		_putchar(37);
+		if (i == 37)
+			_putchar(37);
 	}
 	return (1);
 }
 /**
- *
- *
+ *print_dec - print decimal et integers
+ *@ap: caractere argument
+ *Return: nombre de caractère a imprimé
  */
 int print_dec(va_list ap)
 {
@@ -78,7 +81,6 @@ int print_dec(va_list ap)
 	for (i = i - 1; i >= 0; i--)
 	{
 		count += _putchar(buffer[i]);
-
 	}
 	return (count);
 }
