@@ -5,19 +5,57 @@ DESCRIPTION
 This project involves reimplementing the standard Printf function.
 It does exactly the same like print characters, strings and numbers.
 
-![image](https://github.com/user-attachments/assets/71c7910b-da15-43c8-b872-460a57e0836b)
+```mermaid
 
+flowchart TB
+classDef print fill:#f98
+classDef quest fill:#9f9
+classDef Incr fill:#bbf
+
+A((Start)) --> B[Declare variables]
+style A fill:#0f0
+style End fill:#f00
+
+B:::print --> C[/String input/]
+
+C --> D{Is NULL ?} -- Yes --> E[Return -1] --> End((End))
+E:::print
+D:::quest -- No --> F[Parse through the string]
+
+F:::print --> G{Is '\0' char ?}
+
+G:::quest -- Yes --> H[Return string count] --> End
+H:::print
+G -- No --> I{is '%' Char ?}
+
+I:::quest -- Yes --> J[Check Next Character]
+
+I -- No --> K[Print Character]
+
+K --- Inc[[increment count]]
+
+K --> F
+
+J:::print --> Form{Is a Format Specifier ?}
+
+Form:::quest -- Yes --> Arg[Start function of argument] --- M[[Increment count]]
+M:::Incr
+Inc:::Incr
+Form -- No --> K:::print
+
+Arg:::print --> F
+
+```
 
 ## Example
 
-Install my-project with npm
+
 
 ```bash
   #include "main.h"
 
 int main(void) { _printf("Hello, %s!\n", "school!"); _printf("%d\n", 13); return (0);
 
-}
 
 output
 
@@ -86,4 +124,3 @@ int main(void)
 
 - [@BvrGuillaume](https://www.github.com/BvrGuillaume)
 - [@HamzaMoinet](https://www.github.com/HamzaMoinet)
-
